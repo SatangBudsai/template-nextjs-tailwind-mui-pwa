@@ -28,6 +28,25 @@ export default function App({ Component, pageProps }: AppProps) {
     self.addEventListener('activate', () => {
       console.log('service worker activated')
     });
+    // service-worker.js
+    const CACHE_NAME = 'your-cache-name';
+
+    self.addEventListener('install', (event: any) => {
+      event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+          return cache.addAll(['/']); // Add the URLs of assets you want to cache
+        })
+      );
+    });
+
+    self.addEventListener('fetch', (event: any) => {
+      event.respondWith(
+        caches.match(event.request).then((response) => {
+          return response || fetch(event.request);
+        })
+      );
+    });
+
   }, [])
 
   return (
