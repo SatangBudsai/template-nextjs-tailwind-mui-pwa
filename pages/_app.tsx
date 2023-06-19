@@ -12,7 +12,6 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
 import { Button } from '@mui/material';
 import InjectTailwind from './InjectTailwind';
-import PwaUpdater from '@/components/PwaUpdater';
 export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
@@ -35,7 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <InjectTailwind>
-          <PwaUpdater />
           <Head>
             <meta
               name="viewport"
