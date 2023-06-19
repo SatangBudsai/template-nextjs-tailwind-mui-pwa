@@ -10,6 +10,23 @@ import Nprogress from '@/components/Nprogress';
 
 import type { AppProps } from 'next/app'
 export default function App({ Component, pageProps }: AppProps) {
+
+  window.addEventListener('load', () => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+      console.log("serviceWorker start")
+    } else {
+      console.log("serviceWorker not start ")
+    }
+  })
+  self.addEventListener('install', () => {
+    console.log('service worker installed')
+  });
+
+  self.addEventListener('activate', () => {
+    console.log('service worker activated')
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
