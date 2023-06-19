@@ -11,6 +11,7 @@ export default function Home() {
     const handleBeforeInstallPrompt = (event: any) => {
       event.preventDefault();
       setDeferredPrompt(event);
+      console.log("beforeinstallprompt event fired");
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
