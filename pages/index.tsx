@@ -40,7 +40,7 @@ export default function Home() {
       <div className="uppercase">Template AroundTheCode</div>
       <Button variant="contained" onClick={() => router.push('/pageDemo')}>Home</Button>
       <Button variant="contained" className="ml-2" onClick={handleInstall}>
-        Install App
+        Install App2
       </Button>
     </Layout>
   );
