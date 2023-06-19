@@ -10,6 +10,7 @@ import Nprogress from '@/components/Nprogress';
 
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
@@ -27,7 +28,6 @@ export default function App({ Component, pageProps }: AppProps) {
       console.log('service worker activated')
     });
   }, [])
-
 
   return (
     <QueryClientProvider client={queryClient}>
