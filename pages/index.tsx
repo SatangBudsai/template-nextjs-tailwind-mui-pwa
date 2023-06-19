@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
-
+import { pwaInstallHandler } from 'pwa-install-handler'
+import { AddToHomeScreen } from 'react-pwa-add-to-homescreen';
 export default function Home() {
   const router = useRouter();
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -42,6 +43,7 @@ export default function Home() {
       <Button variant="contained" className="ml-2" onClick={handleInstall}>
         Install App
       </Button>
+      <AddToHomeScreen />
     </Layout>
   );
 }
